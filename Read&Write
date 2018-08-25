@@ -1,0 +1,30 @@
+#include <opencv2/opencv.hpp>
+
+#include <iostream>
+
+using namespace cv;
+
+int main(int argc, char** argv)
+{
+	Mat src = imread("D:\\test.jpg",1);//读取图片
+
+	if(src.empty())
+	{
+		printf("src is wrong.\n");
+		return -1;
+	}
+
+	namedWindow("test", CV_WINDOW_AUTOSIZE);//窗口自适应大小
+
+	imshow("test", src);//显示图片
+
+	namedWindow("output windows", CV_WINDOW_AUTOSIZE);
+	Mat output_image;
+	cvtColor(src, output_image, CV_BGR2GRAY);
+	imshow("output windows", output_image);
+	imwrite("D:\\save.tif", output_image);
+
+	waitKey(0);//等待键盘输入用于暂停
+
+	return 0;
+}
