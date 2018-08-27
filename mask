@@ -1,0 +1,51 @@
+#include <opencv2/opencv.hpp>
+#include <iostream>
+#include <math.h>
+
+using namespace cv;
+
+int main(int argc, char** argv)
+{
+	Mat src, dst;
+	src = imread("D:/test.jpg");
+	if (!src.data)
+	{
+		printf("data Error");
+		return -1;
+	}
+	namedWindow("input img", CV_WINDOW_AUTOSIZE);
+	imshow("input img", src);
+
+	/*
+	int cols = (src.cols-1)*src.channels();//获取图像高度（图像的列*图像的通道数）
+	int rows = src.rows;//获取图像宽度
+	int offsetx = src.channels();//图像通道数
+	dst = Mat::zeros(src.size(), src.type());//初始化
+	for (int row = 1; row < (rows - 1); row++)
+	{
+		const uchar* previous = src.ptr<uchar>(row - 1);
+		const uchar* current = src.ptr<uchar>(row);
+		const uchar* next = src.ptr<uchar>(row + 1);
+
+		uchar* output = dst.ptr<uchar>(row);
+
+		for (int col = offsetx; col < cols; col++)
+		{
+			output[col] = saturate_cast<uchar>(5 * current[col] - (current[col - offsetx] + current[col + offsetx] + previous[col] + next[col]));
+		}
+	}
+	*/
+	
+	 
+	double t = getTickCount();
+	Mat kernel = (Mat_<char>(3, 3) << 0, -1, 0, -1, 5, -1, 0, -1, 0);
+	filter2D(src, dst, src.depth(), kernel);
+	double timeconsume = (getTickCount() - t) / getTickFrequency();
+	printf("time consume %.2f", timeconsume);
+
+	namedWindow("contrast img", CV_WINDOW_AUTOSIZE);
+	imshow("contrast img", dst);
+
+	waitKey(0);
+	return 0;
+}
