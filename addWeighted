@@ -1,0 +1,43 @@
+#include<opencv2/opencv.hpp>
+#include <iostream>
+
+using namespace std;
+using namespace cv;
+
+int main(int argc, char** argv)
+{
+	Mat src1,src2, dst;
+	src1 = imread("D:/pikachu1.jpg");
+	src2 = imread("D:/pikachu2.jpg");
+	if (!src1.data)
+	{
+		cout << "Data is wroing." << endl;
+		return -1;
+	}
+	if (!src2.data)
+	{
+		cout << "Data is wroing." << endl;
+		return -1;
+	}
+
+	double alpha = 0.5;
+
+	//两幅图类型完全一致
+	if (src1.rows == src2.rows && src1.cols == src2.cols && src1.type() == src2.type())
+	{
+		addWeighted(src1, alpha, src2, (1.0 - alpha), 0.0, dst);
+// 		add(src1, src2, dst, Mat());
+// 		multiply(src1, src2, dst);
+		imshow("pikachu1", src1);
+		imshow("pikachu2", src2);
+		namedWindow("blend pikachu", CV_WINDOW_AUTOSIZE);
+		imshow("blend pikachu", dst);
+	}
+	else
+	{
+		printf("the size of images is different.");
+	}
+
+	waitKey(0);
+	return 0;
+}
