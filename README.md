@@ -12,4 +12,6 @@
 
 - [像素操作](https://mp.weixin.qq.com/s?__biz=Mzg5MTAwNDE3NQ==&mid=2247483715&idx=1&sn=c4eab9208c21259dbc8c098e741ef477&chksm=cfd2b523f8a53c35c3cb142d42a7808fba2f3799af78129e296b8c54e98e32d1461cc395ee37&token=1158793559&lang=zh_CN#rd)
 
+- [图像混合](https://mp.weixin.qq.com/s?__biz=Mzg5MTAwNDE3NQ==&mid=2247483726&idx=1&sn=9d4a5abf044fe78b89ddd5c1a921d3e2&chksm=cfd2b52ef8a53c382e5a8b17bad36de2a164b4a248437ab2e88f7b9347c7c80aead2269e24fc&token=525738827&lang=zh_CN#rd)
+
 未完待续..
