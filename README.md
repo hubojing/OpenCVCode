@@ -14,6 +14,6 @@
 
 - [图像混合](https://mp.weixin.qq.com/s/MuVpAE14Nvm8zLx5hyoehQ)
 
--[魔改亮度与对比度](https://mp.weixin.qq.com/s/EcfQWR9Xut0Gr1hEDIaQhw)
+- [魔改亮度与对比度](https://mp.weixin.qq.com/s/EcfQWR9Xut0Gr1hEDIaQhw)
 
 未完待续..
