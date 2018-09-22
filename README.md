@@ -16,4 +16,6 @@
 
 - [魔改亮度与对比度](https://mp.weixin.qq.com/s/EcfQWR9Xut0Gr1hEDIaQhw)
 
+- [绘制形状和文字](https://mp.weixin.qq.com/s/ekpo1l7n0Hgd8Hv_nte2ew)
+
 未完待续..
