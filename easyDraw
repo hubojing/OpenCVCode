@@ -1,0 +1,102 @@
+#include<opencv2/opencv.hpp>
+#include <iostream>
+
+using namespace std;
+using namespace cv;
+
+
+Mat img;
+
+void Lines()
+{
+	Point p1 = Point(10, 20);
+	Point p2;
+	p2.x = 250;
+	p2.y = 250;
+	Scalar color = Scalar(0, 0, 255);
+	line(img, p1, p2, color, 1, LINE_8);
+}
+
+void Rectangle()
+{
+	Rect rect = Rect(80, 80, 280, 300);
+	Scalar color = Scalar(255, 0, 0);
+	rectangle(img, rect, color, 2, LINE_8);
+}
+
+void Ellipse()
+{
+	Scalar color = Scalar(0, 255, 0);
+	ellipse(img, Point(img.cols / 2, img.rows / 2), Size(img.cols / 4, img.rows / 8), 90, 0, 180, color, 2, LINE_8);
+}
+
+void Circle()
+{
+	Scalar color = Scalar(0, 255, 255);
+	Point center = Point(img.cols / 2, img.rows / 2);
+	circle(img, center, 150, color, 2, 8);
+}
+
+void Polygon()
+{
+	Point pts[1][5];
+	pts[0][0] = Point(100, 100);
+	pts[0][1] = Point(100, 200);
+	pts[0][2] = Point(200, 200);
+	pts[0][3] = Point(200, 100);
+	pts[0][4] = Point(100, 100);
+
+	const Point* ppts[] = { pts[0] };
+	int npt[] = { 5 };
+	Scalar color = Scalar(255, 15, 255);
+
+	fillPoly(img, ppts, npt, 1, color, 8);
+}
+
+void RandomLine()
+{
+	RNG rng(12345);
+	Point pt1, pt2;
+	Mat bg = Mat::zeros(img.size(), img.type());
+	namedWindow("random lines", CV_WINDOW_AUTOSIZE);
+	for (int i = 0; i < 100000; ++i)
+	{
+		pt1.x = rng.uniform(0, img.cols);
+		pt1.y = rng.uniform(0, img.rows);
+
+		pt2.x = rng.uniform(0, img.cols);
+		pt2.y = rng.uniform(0, img.rows);
+
+		Scalar color = Scalar(rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255));
+		if (waitKey(50) > 0)
+		{
+			break;
+		}
+		line(bg, pt1, pt2, color, 1, 8);
+		imshow("random lines", bg);
+	}
+}
+
+int main(int argc, char** argv)
+{
+	img = imread("D:/test.jpg");
+	const char* drawName = "draw shapes and text";
+	if (!img.data)
+	{
+		cout << "ERROR." << endl;
+		return -1;
+	}
+
+// 	Lines();
+// 	Rectangle();
+// 	Ellipse();
+// 	Circle();
+// 	Polygon();
+	RandomLine();
+// 	putText(img, "Hello World", Point(200, 200), CV_FONT_HERSHEY_COMPLEX, 1.0, Scalar(0, 0, 255), 1, 8);
+// 	namedWindow(drawName, CV_WINDOW_AUTOSIZE);
+// 	imshow(drawName, img);
+
+	waitKey(0);
+	return 0;
+}
