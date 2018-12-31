@@ -18,4 +18,6 @@
 
 - [绘制形状和文字](https://mp.weixin.qq.com/s/ekpo1l7n0Hgd8Hv_nte2ew)
 
+- [模糊图像](https://mp.weixin.qq.com/s/FOzNzqBXWbJi88e21h14_g)
+
 未完待续..
