@@ -1,0 +1,32 @@
+#include <opencv2/opencv.hpp>
+#include <iostream>
+using namespace cv;
+
+int main(int argc, char** argv)
+{
+	Mat src, dst;
+
+	src = imread("D:/1.png");
+	if (!src.data)
+	{
+		printf("could not load image.");
+		return -1;
+	}
+	namedWindow("input image", CV_WINDOW_AUTOSIZE);
+	imshow("input image", src);
+
+	char output_title[] = "demo";
+	namedWindow(output_title, CV_WINDOW_AUTOSIZE);
+
+	Mat kernel = getStructuringElement(MORPH_RECT, Size(11, 11), Point(-1, -1));
+// 	morphologyEx(src, dst, CV_MOP_OPEN, kernel);
+// 	morphologyEx(src, dst, CV_MOP_CLOSE, kernel);
+// 	morphologyEx(src, dst, CV_MOP_GRADIENT, kernel);
+// 	morphologyEx(src, dst, CV_MOP_TOPHAT, kernel);
+	morphologyEx(src, dst, CV_MOP_BLACKHAT, kernel);
+
+	imshow(output_title, dst);
+
+	waitKey(0);
+	return 0;
+}
