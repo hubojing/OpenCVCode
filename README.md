@@ -22,4 +22,8 @@
 
 - [膨胀、腐蚀](https://mp.weixin.qq.com/s/PcmOC6CwFO0AfBbb2bH4sw)
 
+- [形态学操作](https://mp.weixin.qq.com/s/v2epY793TR36XMJNRoY8-A)
+
+- [图像上采样和降采样](https://mp.weixin.qq.com/s/FvGBGZ9gh4EomvlD6dxlbw)
+
 未完待续..
